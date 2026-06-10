@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NEB Class 12 Result Portal</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap"
+        rel="stylesheet" />
+    <style>
+        :root {
+            --navy: #0B2C5F;
+            --navy-mid: #1A4080;
+            --navy-light: #2558A8;
+            --gold: #C49A28;
+            --gold-light: #E8B83A;
+            --gold-pale: #FDF6E3;
+            --red: #B8181A;
+            --green: #1A6B3C;
+            --green-bg: #EAF5EE;
+            --gray-50: #F7F8FA;
+            --gray-100: #EEF0F5;
+            --gray-200: #DDE0EA;
+            --gray-400: #8892A4;
+            --gray-700: #3D4558;
+            --white: #FFFFFF;
+            --shadow-sm: 0 1px 4px rgba(11, 44, 95, 0.08);
+            --shadow-md: 0 4px 20px rgba(11, 44, 95, 0.12);
+            --shadow-lg: 0 8px 40px rgba(11, 44, 95, 0.16);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: #F0F4FA;
+            color: var(--gray-700);
+            min-height: 100vh;
+        }
+
+        /* ─── HEADER ─────────────────────────────────── */
+        header {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 60%, var(--navy-light) 100%);
+            padding: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -60px;
+            right: -60px;
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: rgba(196, 154, 40, 0.12);
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: -40px;
+            left: 30%;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .header-inner {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 28px 24px 24px;
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .neb-emblem {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            background: var(--white);
+            border: 3px solid var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: 0 0 0 5px rgba(196, 154, 40, 0.2);
+        }
+
+        .neb-emblem svg {
+            width: 44px;
+            height: 44px;
+        }
+
+        .header-text {
+            flex: 1;
+        }
+
+        .header-text .country {
+            font-size: 11px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.65);
+            font-weight: 500;
+            margin-bottom: 2px;
+        }
+
+        .header-text h1 {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--white);
+            line-height: 1.2;
+            letter-spacing: 0.01em;
+        }
+
+        .header-text .subtitle {
+            margin-top: 4px;
+            font-size: 13px;
+            color: var(--gold-light);
+            font-weight: 500;
+            letter-spacing: 0.04em;
+        }
+
+        .header-bar {
+            background: var(--gold);
+            height: 4px;
+            width: 100%;
+        }
+
+        /* ─── NOTICE BAR ─────────────────────────────── */
+        .notice-bar {
+            background: #EBF1FC;
+            border-bottom: 1px solid #C7D6EE;
+            padding: 8px 24px;
+            text-align: center;
+            font-size: 12.5px;
+            color: var(--navy);
+            font-weight: 500;
+            letter-spacing: 0.01em;
+        }
+
+        .notice-bar span {
+            color: var(--red);
+            font-weight: 600;
+        }
+
+        /* ─── MAIN LAYOUT ─────────────────────────────── */
+        main {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 36px 24px 60px;
+        }
+
+        /* ─── SEARCH CARD ─────────────────────────────── */
+        .search-card {
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+            margin-bottom: 32px;
+            border: 1px solid var(--gray-200);
+        }
+
+        .card-header {
+            background: var(--navy);
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card-header .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--gold);
+        }
+
+        .card-header h2 {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 15px;
+            color: var(--white);
+            font-weight: 400;
+            letter-spacing: 0.02em;
+        }
+
+        .card-body {
+            padding: 28px 24px 24px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        label {
+            display: block;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--navy);
+            margin-bottom: 7px;
+        }
+
+        label .req {
+            color: var(--red);
+            margin-left: 2px;
+        }
+
+        input[type="text"],
+        input[type="date"] {
+            width: 100%;
+            height: 44px;
+            border: 1.5px solid var(--gray-200);
+            border-radius: 7px;
+            padding: 0 14px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 14.5px;
+            color: var(--gray-700);
+            background: var(--gray-50);
+            transition: border-color 0.18s, box-shadow 0.18s;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: var(--navy-light);
+            background: var(--white);
+            box-shadow: 0 0 0 3px rgba(37, 88, 168, 0.12);
+        }
+
+        input::placeholder {
+            color: var(--gray-400);
+            font-size: 13.5px;
+        }
+
+        /* DOB toggle */
+        .dob-wrap {
+            position: relative;
+        }
+
+        .dob-toggle {
+            display: flex;
+            background: var(--gray-100);
+            border-radius: 6px;
+            padding: 3px;
+            margin-bottom: 8px;
+            width: fit-content;
+            border: 1px solid var(--gray-200);
+        }
+
+        .dob-toggle button {
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 11.5px;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            padding: 5px 14px;
+            border-radius: 4px;
+            color: var(--gray-400);
+            transition: all 0.15s;
+        }
+
+        .dob-toggle button.active {
+            background: var(--navy);
+            color: var(--white);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .dob-hint {
+            font-size: 11px;
+            color: var(--gray-400);
+            margin-top: 5px;
+            font-style: italic;
+        }
+
+        /* Submit button */
+        .btn-submit {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            height: 48px;
+            background: var(--navy);
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            cursor: pointer;
+            transition: background 0.18s, transform 0.12s, box-shadow 0.18s;
+            box-shadow: 0 3px 12px rgba(11, 44, 95, 0.3);
+            margin-top: 4px;
+        }
+
+        .btn-submit:hover {
+            background: var(--navy-mid);
+            box-shadow: 0 5px 18px rgba(11, 44, 95, 0.35);
+        }
+
+        .btn-submit:active {
+            transform: scale(0.99);
+        }
+
+        .btn-submit svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* Error */
+        .error-box {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            background: #FEF1F1;
+            border: 1px solid #F5C0C0;
+            border-left: 4px solid var(--red);
+            border-radius: 7px;
+            padding: 12px 14px;
+            margin-top: 16px;
+            font-size: 13.5px;
+            color: #7A1010;
+            display: none;
+        }
+
+        .error-box.show {
+            display: flex;
+        }
+
+        /* ─── RESULT CARD ─────────────────────────────── */
+        .result-card {
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+            border: 1px solid var(--gray-200);
+            animation: slideUp 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+            display: none;
+        }
+
+        .result-card.show {
+            display: block;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(18px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Result header */
+        .result-header {
+            background: var(--navy);
+            padding: 20px 28px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .result-header::before {
+            content: '';
+            position: absolute;
+            top: -30px;
+            right: -30px;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: rgba(196, 154, 40, 0.15);
+        }
+
+        .result-header-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 16px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .result-title {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 16px;
+            color: var(--white);
+            font-weight: 700;
+            letter-spacing: 0.02em;
+        }
+
+        .result-title small {
+            display: block;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 2px;
+        }
+
+        .status-badge {
+            padding: 6px 16px;
+            border-radius: 100px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            background: #FFE4E4;
+            color: var(--red);
+            border: 1.5px solid rgba(184, 24, 26, 0.3);
+        }
+
+        /* Student info grid */
+        .student-meta {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            position: relative;
+            z-index: 1;
+        }
+
+        @media (max-width: 700px) {
+            .student-meta {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .student-meta {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .meta-item {}
+
+        .meta-item .meta-label {
+            font-size: 10.5px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 3px;
+        }
+
+        .meta-item .meta-value {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--white);
+        }
+
+        .meta-item .meta-value.gold {
+            color: var(--gold-light);
+        }
+
+        .result-divider {
+            border: none;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin: 16px 0;
+        }
+
+        /* Grade table */
+        .grade-section {
+            padding: 24px 28px;
+        }
+
+        .section-title {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--navy);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 14px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--navy);
+            display: inline-block;
+        }
+
+        table.grade-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            font-size: 13.5px;
+            border: 1px solid var(--gray-200);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        table.grade-table thead tr {
+            background: var(--navy);
+        }
+
+        table.grade-table thead th {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 10.5px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 10px 14px;
+            text-align: left;
+        }
+
+        table.grade-table thead th:last-child,
+        table.grade-table thead th:nth-child(3),
+        table.grade-table thead th:nth-child(4) {
+            text-align: center;
+        }
+
+        table.grade-table tbody tr {
+            border-bottom: 1px solid var(--gray-100);
+            transition: background 0.1s;
+        }
+
+        table.grade-table tbody tr:last-child {
+            border-bottom: none;
+        }
+
+        table.grade-table tbody tr:hover {
+            background: var(--gray-50);
+        }
+
+        table.grade-table tbody tr:nth-child(even) {
+            background: #FAFBFD;
+        }
+
+        table.grade-table tbody tr:nth-child(even):hover {
+            background: var(--gray-50);
+        }
+
+        table.grade-table td {
+            padding: 11px 14px;
+            color: var(--gray-700);
+            vertical-align: middle;
+        }
+
+        table.grade-table td:last-child,
+        table.grade-table td:nth-child(3),
+        table.grade-table td:nth-child(4) {
+            text-align: center;
+        }
+
+        .subject-name {
+            font-weight: 500;
+            color: var(--navy);
+        }
+
+        .subject-code {
+            font-size: 11.5px;
+            color: var(--gray-400);
+            display: block;
+            margin-top: 1px;
+        }
+
+        /* Grade badges */
+        .grade-badge {
+            display: inline-block;
+            padding: 3px 12px;
+            border-radius: 100px;
+            font-size: 13px;
+            font-weight: 700;
+            min-width: 42px;
+            text-align: center;
+        }
+
+        .grade-A {
+            background: #E6F9EF;
+            color: #0E6E38;
+            border: 1px solid #A3D9B8;
+        }
+
+        .grade-Ap {
+            background: #D8F4EC;
+            color: #0A5A2E;
+            border: 1px solid #7EC9A5;
+        }
+
+        .grade-Bp {
+            background: #EAF2FF;
+            color: #1552A0;
+            border: 1px solid #9DC0ED;
+        }
+
+        .grade-B {
+            background: #F0EDFF;
+            color: #4B38AB;
+            border: 1px solid #B8AEE8;
+        }
+
+        .grade-Cp {
+            background: #FFF6E0;
+            color: #8A5A00;
+            border: 1px solid #F0CF7A;
+        }
+
+        .grade-C {
+            background: #FFF3E0;
+            color: #7A4C00;
+            border: 1px solid #F5C970;
+        }
+
+        .grade-Dp {
+                {
+                background: #FFF0D6;
+                color: #7A3D00;
+                border: 1px solid #F5BD5A;
+            }
+        }
+
+        .grade-NG {
+            background: #FEE8E8;
+            color: #A01212;
+            border: 1.5px solid #F5A0A0;
+            font-weight: 800;
+            letter-spacing: 0.05em;
+        }
+
+        /* Credit hours column */
+        .credit {
+            color: var(--gray-400);
+            font-size: 13px;
+        }
+
+        /* Points column */
+        .gp-val {
+            color: var(--navy-mid);
+            font-weight: 600;
+            font-size: 13px;
+        }
+
+        .gp-val.na {
+            color: var(--red);
+            font-weight: 700;
+        }
+
+        /* Remarks section */
+        .remarks-section {
+            padding: 0 28px 28px;
+        }
+
+        .remarks-box {
+            background: #FEF3F3;
+            border: 1px solid #F8CBCB;
+            border-left: 4px solid var(--red);
+            border-radius: 8px;
+            padding: 16px 18px;
+        }
+
+        .remarks-title {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--red);
+            margin-bottom: 8px;
+        }
+
+        .remarks-text {
+            font-size: 13.5px;
+            color: #6B1C1C;
+            line-height: 1.6;
+        }
+
+        .remarks-text strong {
+            font-weight: 600;
+        }
+
+        /* GPA summary bar */
+        .summary-bar {
+            background: var(--gray-50);
+            border-top: 1px solid var(--gray-100);
+            border-bottom: 1px solid var(--gray-100);
+            padding: 16px 28px;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            flex-wrap: wrap;
+            margin-bottom: 0;
+        }
+
+        .summary-item {
+            text-align: center;
+        }
+
+        .summary-item .s-label {
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--gray-400);
+            margin-bottom: 3px;
+        }
+
+        .summary-item .s-value {
+            font-size: 22px;
+            font-weight: 700;
+            font-family: 'Libre Baskerville', serif;
+            color: var(--navy);
+        }
+
+        .summary-item .s-value.red {
+            color: var(--red);
+        }
+
+        .summary-divider {
+            width: 1px;
+            height: 36px;
+            background: var(--gray-200);
+        }
+
+        /* Footer note */
+        .result-footer {
+            padding: 14px 28px;
+            background: var(--gray-50);
+            border-top: 1px solid var(--gray-100);
+            font-size: 11.5px;
+            color: var(--gray-400);
+            line-height: 1.6;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .result-footer svg {
+            width: 14px;
+            height: 14px;
+            flex-shrink: 0;
+            margin-top: 1px;
+            color: var(--gray-400);
+        }
+
+        /* Print / back buttons */
+        .action-row {
+            display: flex;
+            gap: 10px;
+            padding: 16px 28px 0;
+            margin-bottom: -8px;
+        }
+
+        .btn-outline {
+            padding: 8px 18px;
+            border: 1.5px solid var(--gray-200);
+            border-radius: 6px;
+            background: var(--white);
+            color: var(--navy);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 12.5px;
+            font-weight: 600;
+            cursor: pointer;
+            letter-spacing: 0.04em;
+            transition: all 0.15s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--navy-light);
+            background: var(--gray-50);
+        }
+
+        .btn-outline svg {
+            width: 15px;
+            height: 15px;
+        }
+
+        /* Page footer */
+        footer {
+            text-align: center;
+            padding: 24px;
+            font-size: 12px;
+            color: var(--gray-400);
+            border-top: 1px solid var(--gray-200);
+            background: var(--white);
+            margin-top: 20px;
+        }
+
+        footer a {
+            color: var(--navy-light);
+            text-decoration: none;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+
+            .search-card,
+            .btn-outline,
+            .action-row,
+            footer,
+            .notice-bar {
+                display: none !important;
+            }
+
+            .result-card {
+                box-shadow: none;
+                border: 1px solid #ccc;
+                display: block !important;
+            }
+
+            header {
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ── HEADER ─────────────────────────────────── -->
+    <header>
+        <div class="header-inner">
+            <div class="neb-emblem" aria-label="NEB Logo">
+                <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="22" cy="22" r="20" stroke="#C49A28" stroke-width="1.5" />
+                    <path d="M22 6 L26 16 L37 16 L28 23 L31 34 L22 27 L13 34 L16 23 L7 16 L18 16 Z" fill="#C49A28"
+                        opacity="0.85" />
+                    <circle cx="22" cy="22" r="5" fill="#0B2C5F" stroke="#C49A28" stroke-width="1" />
+                    <circle cx="22" cy="22" r="2.5" fill="#C49A28" />
+                </svg>
+            </div>
+            <div class="header-text">
+                <p class="country">Government of Nepal</p>
+                <h1>National Examinations Board</h1>
+                <p class="subtitle">Class 12 Result Portal &nbsp;|&nbsp; 2082 (2025)</p>
+            </div>
+        </div>
+        <div class="header-bar"></div>
+    </header>
+
+    <div class="notice-bar">
+        <span>Important:</span> Results are provisional. Contact your institution for official mark sheets. For queries:
+        <strong>neb@tec.gov.np</strong>
+    </div>
+
+    <!-- ── MAIN ──────────────────────────────────── -->
+    <main>
+
+        <!-- Search form card -->
+        <div class="search-card" id="searchCard">
+            <div class="card-header">
+                <div class="dot"></div>
+                <h2>Student Result Inquiry</h2>
+            </div>
+            <div class="card-body">
+                <div class="form-row">
+                    <!-- Symbol Number -->
+                    <div>
+                        <label for="symbolNo">Symbol Number <span class="req">*</span></label>
+                        <input type="text" id="symbolNo" placeholder="e.g. 1234567" maxlength="20"
+                            autocomplete="off" />
+                    </div>
+                    <!-- DOB -->
+                    <div class="dob-wrap">
+                        <label>Date of Birth <span class="req">*</span></label>
+                        <div class="dob-toggle">
+                            <button type="button" id="btnAD" class="active" onclick="switchDOB('AD')">AD</button>
+                            <button type="button" id="btnBS" onclick="switchDOB('BS')">BS</button>
+                        </div>
+                        <input type="text" id="dobAD" placeholder="YYYY-MM-DD (e.g. 2008-02-02)" autocomplete="off" />
+                        <input type="text" id="dobBS" placeholder="YYYY-MM-DD (e.g. 2064-10-19)" autocomplete="off"
+                            style="display:none" />
+                        <p class="dob-hint" id="dobHint">AD calendar — Gregorian date of birth</p>
+                    </div>
+                </div>
+
+                <button class="btn-submit" onclick="checkResult()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8" />
+                        <path d="m21 21-4.35-4.35" />
+                    </svg>
+                    Check Result
+                </button>
+
+                <div class="error-box" id="errorBox">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                        stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:1px">
+                        <circle cx="12" cy="12" r="10" />
+                        <line x1="12" y1="8" x2="12" y2="12" />
+                        <line x1="12" y1="16" x2="12.01" y2="16" />
+                    </svg>
+                    <span id="errorMsg">No record found. Please check your Symbol Number and Date of Birth.</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Result card -->
+        <div class="result-card" id="resultCard">
+
+            <!-- Result header -->
+            <div class="result-header">
+                <div class="result-header-top">
+                    <div class="result-title">
+                        <small>NEB · Grade XII · Examination Result</small>
+                        Academic Year: 2082 B.S. (2025)
+                    </div>
+                    <div class="status-badge">NG &mdash; Not Graded</div>
+                </div>
+                <hr class="result-divider" />
+                <div class="student-meta">
+                    <div class="meta-item">
+                        <p class="meta-label">Student Name</p>
+                        <p class="meta-value">Asmita Khatiwada</p>
+                    </div>
+                    <div class="meta-item">
+                        <p class="meta-label">Symbol Number</p>
+                        <p class="meta-value gold">22756693</p>
+                    </div>
+                    <div class="meta-item">
+                        <p class="meta-label">Date of Birth</p>
+                        <p class="meta-value">2008-02-02 (AD)</p>
+                    </div>
+                    <div class="meta-item">
+                        <p class="meta-label">Faculty / Course</p>
+                        <p class="meta-value">Management (+2)</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action row -->
+            <div class="action-row">
+                <button class="btn-outline" onclick="goBack()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M19 12H5M12 19l-7-7 7-7" />
+                    </svg>
+                    New Search
+                </button>
+                <button class="btn-outline" onclick="window.print()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <polyline points="6 9 6 2 18 2 18 9" />
+                        <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
+                        <rect x="6" y="14" width="12" height="8" />
+                    </svg>
+                    Print Marksheet
+                </button>
+            </div>
+
+            <!-- Grade table -->
+            <div class="grade-section">
+                <span class="section-title">Subject-wise Grade Sheet</span>
+                <table class="grade-table" role="table" aria-label="Subject-wise grades">
+                    <thead>
+                        <tr>
+                            <th style="width:34%">Subject</th>
+                            <th>Code</th>
+                            <th>Credit Hrs</th>
+                            <th>Grade</th>
+                            <th>Grade Point</th>
+                            <th>Remarks</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Compulsory subjects -->
+                        <tr>
+                            <td><span class="subject-name">English</span><span class="subject-code">Compulsory</span>
+                            </td>
+                            <td>003</td>
+                            <td class="credit">5</td>
+                            <td><span class="grade-badge grade-NG">NG</span></td>
+                            <td class="gp-val na">—</td>
+                            <td style="color:var(--red);font-size:12.5px;font-weight:600">Not Graded</td>
+                        </tr>
+                        <tr>
+                            <td><span class="subject-name">Nepali</span><span class="subject-code">Compulsory</span>
+                            </td>
+                            <td>002</td>
+                            <td class="credit">5</td>
+                            <td><span class="grade-badge grade-Bp">B+</span></td>
+                            <td class="gp-val">3.2</td>
+                            <td style="color:var(--green);font-size:12.5px">Pass</td>
+                        </tr>
+                        <!-- Management subjects -->
+                        <tr>
+                            <td><span class="subject-name">Accountancy</span><span class="subject-code">Management
+                                    Elective</span></td>
+                            <td>201</td>
+                            <td class="credit">5</td>
+                            <td><span class="grade-badge grade-A">A</span></td>
+                            <td class="gp-val">3.1</td>
+                            <td style="color:var(--green);font-size:12.5px">Pass</td>
+                        </tr>
+                        <tr>
+                            <td><span class="subject-name">Economics</span><span class="subject-code">Management
+                                    Elective</span></td>
+                            <td>202</td>
+                            <td class="credit">5</td>
+                            <td><span class="grade-badge grade-Bp">B+</span></td>
+                            <td class="gp-val">3.2</td>
+                            <td style="color:var(--green);font-size:12.5px">Pass</td>
+                        </tr>
+                        <tr>
+                        </tr>
+                        <tr>
+                            <td><span class="subject-name">Computer Science</span><span
+                                    class="subject-code">Optional</span></td>
+                            <td>322</td>
+                            <td class="credit">5</td>
+                            <td><span class="grade-badge grade-A">A</span></td>
+                            <td class="gp-val">3.2</td>
+                            <td style="color:var(--green);font-size:12.5px">Pass</td>
+                        </tr>
+                        <tr>
+                            <td><span class="subject-name">Social Studies</span><span class="subject-code">Optional</span>
+                            </td>
+                            <td>205</td>
+                            <td class="credit">5</td>
+                            <td><span class="grade-badge grade-B">B</span></td>
+                            <td class="gp-val">3.3</td>
+                            <td style="color:var(--green);font-size:12.5px">Pass</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Summary bar -->
+            <div class="summary-bar">
+                <div class="summary-item">
+                    <p class="s-label">Subjects Taken</p>
+                    <p class="s-value">6</p>
+                </div>
+                <div class="summary-divider"></div>
+                <div class="summary-item">
+                    <p class="s-label">Subjects Passed</p>
+                    <p class="s-value">5</p>
+                </div>
+                <div class="summary-divider"></div>
+                <div class="summary-item">
+                    <p class="s-label">GPA (Graded Subjects)</p>
+                    <p class="s-value">Not Graded</p>
+                </div>
+                <div class="summary-divider"></div>
+                <div class="summary-item">
+                    <p class="s-label">Overall Result</p>
+                    <p class="s-value red">NG</p>
+                </div>
+            </div>
+
+            <!-- Remarks -->
+            <div class="remarks-section" style="padding-top:20px">
+                <div class="remarks-box">
+                    <p class="remarks-title">⚠ Official Remarks — Result Status</p>
+                    <p class="remarks-text">
+                        The student's overall result is declared as <strong>"NG (Not Graded)"</strong> for the academic
+                        year 2080 B.S. (2023–24). This determination is in accordance with <strong>NEB Grading
+                            Guidelines</strong>, which require a minimum grade in all compulsory subjects for a full
+                        pass declaration. The candidate has received <strong>NG in English (Code: 003)</strong>, a
+                        compulsory subject, resulting in a withheld/not-graded overall status.<br /><br />
+                        The student may appear in the <strong>Grade Improvement / Supplementary Examination</strong> for
+                        the English subject in the upcoming examination cycle. For reappear procedures, contact the
+                        District Education Coordination Unit or your registered institution.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Footer note -->
+            <div class="result-footer">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10" />
+                    <line x1="12" y1="8" x2="12" y2="12" />
+                    <line x1="12" y1="16" x2="12.01" y2="16" />
+                </svg>
+                This is a computer-generated result. The result is provisional until verified by the National
+                Examinations Board, Nepal. Tampering with this result is a criminal offence. For discrepancies, contact
+                NEB within 35 days of publication.
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        &copy; 2024 National Examinations Board (NEB), Nepal. &nbsp;|&nbsp; <a href="#">neb.gov.np</a> &nbsp;|&nbsp;
+        Sanothimi, Bhaktapur
+    </footer>
+
+    <script>
+        /* ── Hardcoded student DB ── */
+        const DB = {
+            "22756693": {
+                name: "Asmita Khatiwada",
+                dobAD: "2008-02-02",
+                dobBS: "2064-10-19",
+                faculty: "Management (+2)"
+            }
+        };
+
+        let dobMode = 'AD';
+
+        function switchDOB(mode) {
+            dobMode = mode;
+            document.getElementById('dobAD').style.display = mode === 'AD' ? 'block' : 'none';
+            document.getElementById('dobBS').style.display = mode === 'BS' ? 'block' : 'none';
+            document.getElementById('btnAD').classList.toggle('active', mode === 'AD');
+            document.getElementById('btnBS').classList.toggle('active', mode === 'BS');
+            document.getElementById('dobHint').textContent =
+                mode === 'AD'
+                    ? 'AD calendar — Gregorian date of birth'
+                    : 'BS calendar — Bikram Sambat date of birth';
+        }
+
+        function checkResult() {
+            const sym = document.getElementById('symbolNo').value.trim();
+            const dob = dobMode === 'AD'
+                ? document.getElementById('dobAD').value.trim()
+                : document.getElementById('dobBS').value.trim();
+            const errorBox = document.getElementById('errorBox');
+            const errorMsg = document.getElementById('errorMsg');
+
+            errorBox.classList.remove('show');
+
+            if (!sym || !dob) {
+                errorMsg.textContent = 'Please fill in both Symbol Number and Date of Birth.';
+                errorBox.classList.add('show');
+                return;
+            }
+
+            const student = DB[sym];
+            if (!student) {
+                errorMsg.textContent = 'No record found for symbol number ' + sym + '. Please verify your entry.';
+                errorBox.classList.add('show');
+                return;
+            }
+
+            const dobMatch = dobMode === 'AD' ? student.dobAD : student.dobBS;
+            if (dob !== dobMatch) {
+                errorMsg.textContent = 'Date of Birth does not match our records for symbol number ' + sym + '. Please check and try again.';
+                errorBox.classList.add('show');
+                return;
+            }
+
+            /* Show result */
+            document.getElementById('resultCard').classList.add('show');
+            document.getElementById('resultCard').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function goBack() {
+            document.getElementById('resultCard').classList.remove('show');
+            document.getElementById('symbolNo').value = '';
+            document.getElementById('dobAD').value = '';
+            document.getElementById('dobBS').value = '';
+            document.getElementById('errorBox').classList.remove('show');
+            document.getElementById('searchCard').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        /* Enter key support */
+        ['symbolNo', 'dobAD', 'dobBS'].forEach(id => {
+            document.getElementById(id).addEventListener('keydown', e => {
+                if (e.key === 'Enter') checkResult();
+            });
+        });
+    </script>
+</body>
+
+</html>
